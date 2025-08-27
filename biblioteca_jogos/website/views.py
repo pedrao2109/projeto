@@ -15,3 +15,9 @@ def arquivo(request):
 def lista_pessoas(request):
     pessoas = Pessoa.objects.all().order_by('nome')
     return render(request, 'pessoas.html', {'pessoas': pessoas})
+
+def criados(request):
+    return render(request,'criados.html')
+
+def criar_post(request):
+    return render(request,'criar_post.html')

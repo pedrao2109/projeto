@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+<main class="conteudo">
+    <div class="container my-4">
+       <h1>Minha Biblioteca de Jogos</h1>
+       <div id="listaJogosTT" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+       <div class="alert alert-danger aviso" style="display:none;" role="alert">
+           Nenhum jogo cadastrado!
+       </div>
+   </div>
+   {% include 'navbar.html' %}
+
+   {% block 'body' %}
+        <div id="Criar" class="secao">
+           <div class="container mt-4">
+              <h2 class="mb-4 hdo">Criar Postagem</h2>
+              <form class="row g-3">
+                 <div class="asi">
+                 <div class="col-md-6">
+                    <label for="nome_jogo" class="form-label">Nome do Jogo</label>
+                    <input type="text" class="form-control" id="nome_jogo" name="nome_jogo" required autocomplete="off" />
+                 </div>
+                 <div class="col-md-6">
+                    <label for="img_jogo" class="form-label">URL da Imagem de Capa</label>
+                    <input type="url" class="form-control" id="img_jogo" name="img_jogo" placeholder="https://exemplo.com/imagem.jpg" autocomplete="off" />
+                 </div>
+                 <div class="col-12">
+                    <label for="inputSobreJogo" class="form-label">categoria do jogo</label>
+                    <input type="text" class="form-control" id="inputSobreJogo" name="inputSobreJogo"  placeholder="Categoria do jogo" autocomplete="off" />
+                 </div>
+                 <div class="col-12">
+                    <label class="form-label">Avaliação</label>
+                    <div class="classificacao" style="display: flex;flex-direction: row-reverse;justify-content: flex-end;">
+                       <span class="estrela">&#9733;</span>
+                       <span class="estrela">&#9733;</span>
+                       <span class="estrela">&#9733;</span>
+                       <span class="estrela">&#9733;</span>
+                       <span class="estrela">&#9733;</span>
+                    </div>
+                 </div>
+                 <div class="col-12">
+                    <label for="inputSobreJogo" class="form-label">Descrição sobre o jogo</label>
+                    <textarea class="form-control" id="floatingTextarea2" placeholder="Descrição do jogo" style="height: 100px;"></textarea>
+                 </div>
+                 <div class="col-12">
+                    <label for="recomendado_jogo">Recomendado</label>
+                    <select id="recomendado_jogo" name="recomendado_jogo" form="carform">
+                       <option value="sim">SIM</option>
+                       <option value="nao">NÃO</option>
+                    </select>
+                 </div>
+                 </div>
+                 <div class="col-12">
+                    <button type="button" class="btn btn-primary" onclick="criarpost()">Postar</button>
+                 </div>
+              </form>
+           </div>
+        </div>
+    
+     <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style=" background-color: #63b963;">
+           <div class="toast-header">
+              <!-- <img src="..." class="rounded me-2" alt="..."> -->
+              <strong class="me-auto">Post criado com sucesso!</strong>
+              <small >Criado neste momento</small>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+           </div>
+           <div class="toast-body" id="tituloPost"></div>
+        </div>
+     </div>
+   {% endblock %}

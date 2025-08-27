@@ -1,24 +1,9 @@
 {% extends 'base.html' %}
 {% block 'head' %} {% endblock %}
-
+{% block 'title' %}Biblioteca de Jogos - Index {% endblock %}
 {% block 'body' %}
    
    <main class="conteudo secao" id="conteudo">
-      <h1>bem vindo a biblioteca de jogos</h1>
-      <p>site criado para se guardar jogos que ja jogou, nao jogou, jogou e nao zerou, colocar suas descricoes sobre oque achou do jogo, tipo um bloco de notas, mas para seus jogos</p>
-      <p>tem diversos jogos na aba "pesquisar" dentro do submenu "catalogo" que pode adicionar a sua biblioteca, mas se o seu jogo de preferencia nao estiver la, voce mesmo pode adicionar seu jogo a sua biblioteca usando a aba "criar" criando um post com sua descricao sobre o jogo, e voce mesmo uma capa para o jogo usando uma url de image, tem como colocar uma avialiacao ao jogo tambem e a categoria do jogo (ex:rpg medieval)</p>
-         <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-               <div class="carousel-item active">
-                     <img src="../../static/img/capanv.webp" class="d-block w-100 img-fluid" alt="Capa The Witcher 3" />
-               </div>
-               <div class="carousel-item">
-                  <img src="../../static/img/capared.jpg" class="d-block w-100 img-fluid" alt="Capa Red Dead Redemption 2" />
-               </div>
-               <div class="carousel-item">
-                  <img src="../../static/img/thelastcapa.webp" class="d-block w-100 img-fluid" alt="Capa The Last of Us" />
-               </div>
-            </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Anterior</span>
@@ -30,5 +15,31 @@
          </div>
       </div>
       </main>
+
+      <main class="conteudo">
+         <div id="conteudo" class="secao">
+           <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+             <div class="carousel-inner">
+               <div class="carousel-item active">
+                 <img src="../../static/img/capared.jpg" class="d-block w-100" alt="Capa Red Dead Redemption 2" />
+               </div>
+               <div class="carousel-item">
+                 <img src="../../static/img/capanv.webp" class="d-block w-100" alt="Capa The Witcher 3" />
+               </div>
+               <div class="carousel-item">
+                 <img src="../../static/img/thelastcapa.webp" class="d-block w-100" alt="Capa The Last of Us" />
+               </div>
+             </div>
+             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+               <span class="visually-hidden">Anterior</span>
+             </button>
+             <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+               <span class="carousel-control-next-icon" aria-hidden="true"></span>
+               <span class="visually-hidden">Próximo</span>
+             </button>
+           </div>
+         </div>
+       </main>      
 {% endblock %}
 </html>
