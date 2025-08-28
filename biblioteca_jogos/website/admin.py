@@ -1,5 +1,5 @@
 from django.contrib import admin
-from biblioteca_jogos.website.models import Pessoa
+from biblioteca_jogos.website.models import Pessoa, Slideshow
 
 # Register your models here.
 
@@ -19,4 +19,11 @@ class PessoaModelAdmin(admin.ModelAdmin):
         }),
     )
 
+class SlideshowModelAdmin(admin.ModelAdmin):
+    list_display = ['titulo','imagem','alt','descricao',]
+    search_fields = ('titulo',)
+
 admin.site.register(Pessoa, PessoaModelAdmin)
+
+
+admin.site.register(Slideshow, SlideshowModelAdmin)
