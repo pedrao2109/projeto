@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block 'title' %}Biblioteca de Jogos - Index {% endblock %}
 <main class="conteudo">
     <div class="container my-4">
        <h1>Minha Biblioteca de Jogos</h1>
@@ -67,4 +68,148 @@
            <div class="toast-body" id="tituloPost"></div>
         </div>
      </div>
+     <script>
+      function carregarJogosTT() {
+          let jogos = JSON.parse(localStorage.getItem("jogos")) || [];
+          let container = document.getElementById("listaJogosTT");
+          let aviso = document.querySelector('.aviso');
+          container.innerHTML = '';
+
+          if (jogos.length === 0) {
+              aviso.style.display = '';
+          } else {
+              aviso.style.display = 'none';
+              jogos.forEach(jogo => {
+                  let section = document.createElement("section");
+                  section.classList.add("col", "jogo", "item2");
+                  section.innerHTML = `
+                      <div class="card shadow-sm">
+                          <img src="${jogo.capa}" alt="foto-${jogo.nome}" class="img-fluid">
+                          <h2 class="fw-normal text-center">${jogo.nome}</h2>
+                          <div class="card-body">
+                              <p class="card-text"><strong>Categoria:</strong> ${jogo.sobre}</p>
+                              <p class="card-text"><strong>Descrição:</strong> ${jogo.comentarios || ""}</p>
+                              <label class="form-label">Avaliação</label>
+                              <div class="classificacao" style="display: flex;flex-direction: row;justify-content: flex-start;">
+                                  ${[1,2,3,4,5].map(i => `<span class="estrela ${i <= parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"}">&#9733;</span>`).join('')}
+                              </div>
+                              <p class="mt-2"><strong>Recomendado:</strong> ${jogo.recomendado === "sim" ? "Sim" : "Não"}</p>
+                          </div>
+                      </div>
+                  `;
+                  container.appendChild(section);
+              });
+          }
+      }
+      window.onload = carregarJogosTT;
+  </script>
+    <script>
+function criarpost() {
+  let nomejogo = document.getElementById('nome_jogo');
+  let imgjogo = document.getElementById('img_jogo');
+  let sobrejogo = document.getElementById('inputSobreJogo');
+  let avaliacaojogo = (document.querySelectorAll(".estrela.selecionada")).length;
+
+  let comentariojogo = document.getElementById('floatingTextarea2');
+  let recomendadojogo = document.getElementById('recomendado_jogo');
+
+  if (!nomejogo.value || !imgjogo.value) {
+      alert("Por favor, preencha os campos de nome e imagem do jogo!");
+      return;
+  }
+  const id = Date.now();
+  const nome = nomejogo.value;
+  const sobre = sobrejogo.value;
+  const capa = imgjogo.value;
+  const avaliacao = avaliacaojogo;
+  const comentarios = comentariojogo.value;
+  const recomendado = recomendadojogo.value;
+
+  if (!nome || !sobre) {
+      alert("Por favor, preencha todos os campos!");
+      return;
+  }
+
+  const novaJogo = {
+      id,
+      nome,
+      sobre,
+      capa,
+      avaliacao,
+      comentarios,
+      recomendado
+  };
+
+  nomejogo.value = "";
+  imgjogo.value = "";
+
+  // Salva na lista geral de jogos (para pesquisa)
+  let jogos = JSON.parse(localStorage.getItem("jogos")) || [];
+  jogos.push(novaJogo);
+  localStorage.setItem("jogos", JSON.stringify(jogos));
+
+  // Salva também em "minha_biblioteca" (para aparecer ao acessar pelo menu)
+  let minha_biblioteca = JSON.parse(localStorage.getItem("minha_biblioteca")) || [];
+  minha_biblioteca.push(novaJogo);
+  localStorage.setItem("minha_biblioteca", JSON.stringify(minha_biblioteca));
+
+  localStorage.removeItem("jogosPesquisados");
+  window.location.href = "criados/";
+}
+                
+       function avaliar(event) {
+           const estrelas = document.querySelectorAll(".estrela");
+           let selecionada = false;
+           estrelas.forEach((estrela, index) => {
+           if (estrela === event.target) {
+           selecionada = true;
+           }
+           estrela.classList.toggle("selecionada", selecionada);
+           });
+       }
+       
+       document.querySelectorAll(".estrela").forEach(estrela => {
+           estrela.addEventListener("click", avaliar);
+       });
+       
+       
+    </script>
+    <script>
+       document.querySelectorAll('.submenu-toggle').forEach(btn => {
+         btn.addEventListener('click', () => {
+           const submenu = btn.nextElementSibling;
+           submenu.classList.toggle('show');
+         });
+       });
+    
+window.onload = () => {
+  const darkMode = localStorage.getItem("darkMode");
+  if (darkMode === "enabled") {
+    document.body.classList.add("dark-mode");
+  }
+};
+
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+  const isDark = document.body.classList.contains("dark-mode");
+
+  if (isDark) {
+    localStorage.setItem("darkMode", "enabled");
+  } else {
+    localStorage.setItem("darkMode", "disabled");
+  }
+}
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"></script>
+    <script>
+       function avisoPostCriado(tituloPost){
+         let toastLiveExample = document.getElementById('liveToast');
+         let toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+         document.getElementById("tituloPost").innerText = tituloPost;
+         toastBootstrap.show();
+       }
+       
+    </script>
    {% endblock %}

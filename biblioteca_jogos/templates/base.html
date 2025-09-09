@@ -16,23 +16,23 @@
 
 <body>
   <aside class="menu-vertical">
-    <a href="biblioteca-de-jogos.html">
+    <a href="http://127.0.0.1:8000/">
       <img src="../../static/img/9.png" alt="logotipo da biblioteca" class="logo" />
     </a>
     <nav>
       <ul>
-        <li><a href="criados.html" onclick="mostrarConteudo('conteudo')"><i class="bi bi-house"></i> INÍCIO</a></li>
-        <li><a href="#" onclick="mostrarConteudo('Criar')"><i class="bi bi-folder-symlink"></i> CRIAR POST</a></li>
+        <li><a href="http://127.0.0.1:8000/" onclick="mostrarConteudo('conteudo')"><i class="bi bi-house"></i> INÍCIO</a></li>
+        <li><a href="criar_post/" onclick="mostrarConteudo('Criar')"><i class="bi bi-folder-symlink"></i> CRIAR POST</a></li>
   
         <li class="has-submenu">
           <button class="submenu-toggle" id="sub"><i class="bi bi-folder2"></i> CATÁLOGO</button>
           <ul class="submenu">
-            <li><a href="#" id="catal" onclick="mostrarConteudo('CRIADOS')"><i class="bi bi-bookmarks"></i> POSTS CRIADOS</a></li>
-            <li><a href="#" onclick="mostrarConteudo('RECOMENDADOS')"><i class="bi bi-bookmark-star"></i> RECOMENDADOS</a></li>
+            <li><a href="criados/" id="catal" onclick="mostrarConteudo('CRIADOS')"><i class="bi bi-bookmarks"></i> POSTS CRIADOS</a></li>
+            <li><a href="recomendados/" onclick="mostrarConteudo('RECOMENDADOS')"><i class="bi bi-bookmark-star"></i> RECOMENDADOS</a></li>
           </ul>
         </li>
   
-        <li><a href="#" onclick="mostrarConteudo('SOBRE')"><i class="bi bi-info-circle"></i> SOBRE</a></li>
+        <li><a href="sobre/" onclick="mostrarConteudo('SOBRE')"><i class="bi bi-info-circle"></i> SOBRE</a></li>
       </ul>
       
       <div class="jj mt-3 d-flex flex-column align-items-center gap-3">
@@ -49,6 +49,3 @@
   </aside>
   {% block 'body' %}   {% endblock %}
 </html>
-  
-
-  

@@ -21,3 +21,12 @@ def criados(request):
 
 def criar_post(request):
     return render(request,'criar_post.html')
+
+def carrossel(request):
+    return render(request,'carrossel.html')
+
+def recomendados(request):
+    return render(request,'recomendados.html')
+
+def sobre(request):
+    return render(request,'sobre.html')

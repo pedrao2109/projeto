@@ -20,5 +20,11 @@ class Slideshow(models.Model):
     alt = models.CharField(verbose_name ="Alternative",max_length=100, blank=True, null=True,)
     descricao = models.TextField("Descrição",  blank=True, null= True)
 
+    class Meta:
+        verbose_name_plural = 'SlideShow'
+        verbose_name = 'SlideShow'
+        ordering = ('titulo',)
+
+
     def __str__(self):
         return self.titulo
