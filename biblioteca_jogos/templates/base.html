@@ -43,7 +43,13 @@
     <button onclick="toggleDarkMode()" aria-label="Alternar modo escuro" style="background: none; border: none;" title="Mudar Tema">
       <i id="icone-tema" class="bi bi-brightness-low" style="color: white; font-size: 3rem;"></i>
     </button>
-  </div> 
+  </div>
+  
+  <div class="jj mt-3 d-flex flex-column align-items-center gap-3">
+    <a href="{% url 'login' %}" onclick="mostrarConteudo('USUARIO')" aria-label="conta" title="Usuario">
+      <i class="bi bi-person" style="color: white; font-size: 3rem;"></i>
+    </a>
+  
   
     </nav>
   </aside>
