@@ -30,3 +30,9 @@ def recomendados(request):
 
 def sobre(request):
     return render(request,'sobre.html')
+
+def login(request):
+    return render(request,'login.html')
+
+def registrar(request):
+    return render(request,'registar.html')

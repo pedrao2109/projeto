@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block 'head' %} {% endblock %}
+{% block 'title' %}Biblioteca de Jogos - Index {% endblock %}
+{% block 'body' %}
+
+
+    
+<main class="form-signin">
+    <form name="formLogin" id="formLogin" class="formLogin" onsubmit="event.preventDefault();">    
+      <a href="{% url 'home' %}"><img class="mb-4" src="../../static/img/10.png" alt="" width="72" height="88"></a>
+      <h1 class="h3 mb-3 fw-normal">Login</h1>
+  
+      <div class="form-floating">
+        <input type="email" class="form-control" id="usuarioEmail" placeholder="name@example.com">
+        <label for="usuarioEmail">Email</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="usuarioSenha" placeholder="Password">
+        <label for="usuarioSenha">Senha</label>
+      </div>
+      <div class="checkbox mb-3">
+      </div>
+      <button class="bota w-100 btn btn-lg btn-primary" onclick="fazerLogin();" >Entrar</button>
+    </form>
+  
+    <p class="mt-5 mb-3 text-muted">Caso seja novo por aqui tente se <a href="{% url 'registrar' %}">Cadastrar</a></p>
+  
+  </main>
+
+{% endblock %}
