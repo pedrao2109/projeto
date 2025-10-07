@@ -10,8 +10,8 @@ class Pessoa(models.Model):
     telefone = models.CharField(max_length=20, blank=True)
     endereco = models.TextField(blank=True)
 
-    criado_em = models.DateTimeField(auto_now_add=True, blank=True)
-    atualizado_em = models.DateTimeField(auto_now=True, blank=True)
+    criado_em = models.DateTimeField(auto_now_add=True, blank=True, null=False)
+    atualizado_em = models.DateTimeField(auto_now=True, blank=True, null=False)
 
 
 class Slideshow(models.Model):

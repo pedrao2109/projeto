@@ -68,6 +68,6 @@ def logout_usuario(request):
     return redirect("login")
 
 
-@login_required
-def area_restrita(request):
-    return render(request, "area_restrita.html")
+# @login_required
+# def area_restrita(request):
+#     return render(request, "area_restrita.html")

@@ -38,8 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'biblioteca_jogos.website.apps.WebsiteConfig'
+    'biblioteca_jogos.website.apps.WebsiteConfig',
+    'biblioteca_jogos.usuarios.apps.UsuariosConfig',
 ]
+
+AUTH_USER_MODEL = 'usuarios.Usuario'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

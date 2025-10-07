@@ -1,46 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block 'head' %} {% endblock %}
 {% block 'title' %}Biblioteca de Jogos - Index {% endblock %}
 {% block 'body' %}
    
-   <main class="conteudo secao" id="conteudo">
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="visually-hidden">Próximo</span>
-            </button>
-         </div>
-      </div>
-      </main>
+{% include 'componentes/carousel.html' %}
 
-      <main class="conteudo">
-         <div id="conteudo" class="secao">
-           <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-             <div class="carousel-inner">
-               <div class="carousel-item active">
-                 <img src="../../../media/slideshow/capared.jpg" class="d-block w-100" alt="Capa Red Dead Redemption 2" />
-               </div>
-               <div class="carousel-item">
-                 <img src="../../../media/slideshow/capanv_1.webp" class="d-block w-100" alt="Capa The Witcher 3" />
-               </div>
-               <div class="carousel-item">
-                 <img src="../../../media/slideshow/thelastcapa.webp" class="d-block w-100" alt="Capa The Last of Us" />
-               </div>
-             </div>
-             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-               <span class="visually-hidden">Anterior</span>
-             </button>
-             <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-               <span class="carousel-control-next-icon" aria-hidden="true"></span>
-               <span class="visually-hidden">Próximo</span>
-             </button>
-           </div>
-         </div>
-       </main>
-       <script src="carregarConteudo.js"></script>
+    <script src="{% static 'js/carregarConteudo.js' %}"></script>
      <script>
   window.onload = () => {
     const darkMode = localStorage.getItem("darkMode");
@@ -62,18 +28,6 @@
 </script>
 
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"></script>
-      <script>
-         document.querySelectorAll('.submenu-toggle').forEach(btn => {
-           btn.addEventListener('click', () => {
-             const submenu = btn.nextElementSibling;
-             submenu.classList.toggle('show');
-           });
-         });
-
-        if( !localStorage.getItem("minha_biblioteca")){
-          localStorage.setItem("minha_biblioteca", JSON.stringify([]));
-        }
-      </script>      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"></script>    
 {% endblock %}
 </html>
