@@ -35,4 +35,4 @@ def login(request):
     return render(request,'login.html')
 
 def registrar(request):
-    return render(request,'registar.html')
+    return render(request,'registrar.html')
