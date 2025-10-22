@@ -11,5 +11,5 @@ urlpatterns = [
     path('recomendados/',views.recomendados, name='recomendados'),
     path('sobre/',views.sobre, name='sobre'),
     path('login/',views.login, name='login'),
-    path('registrar/',views.registrar, name='registrar')
+    path('registrar/',views.registrar, name='registrar'),
 ]

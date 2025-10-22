@@ -44,7 +44,7 @@ def registrar_usuario(request):
             login(request, user)
             return redirect("area_restrita")
 
-    return render(request, "registro.html", {"erro": erro})
+    return render(request, "registrar.html", {"erro": erro})
 
 
 def login_usuario(request):
