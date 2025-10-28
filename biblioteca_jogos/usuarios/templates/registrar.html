@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% block 'head' %}{% endblock %}
+{% block 'title' %}Biblioteca de Jogos - Index {% endblock %}
 
-
-{% block 'conteudo'%}
+{% block 'body'%}
 {% if erro %}<p style="color:red;">{{ erro }}</p>{% endif %}
-<body class="text-center">
-    <main class="form-signin">
+
+     <main class="form-signin">
         <form name="formCadUsuario"  id="formCadUsuario" method="post">
             <a href="{% url 'home'%}"><img class="mb-4" src="{% static 'img/9.png' %}" alt="" width="72" height="88"></a>
             {% csrf_token %}
@@ -31,5 +31,6 @@
             <button class="bota w-100 btn btn-lg btn-primary">Cadastrar</button>
             <p class="mt-5 mb-3 text-muted">&copy;2025</p>
         </form>
-<a href="{% url 'login' %}">Já tenho conta</a>
+        <a href="{% url 'login' %}">Já tenho conta</a>
+    </main>
 {% endblock %}
